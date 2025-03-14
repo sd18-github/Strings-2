@@ -10,7 +10,7 @@ public class FindAnagrams  {
      * Encapsulated array that functions as a CharMap
      * and allows for easy comparison via equals method
      */
-    class CharMap {
+    static class CharMap {
         int[] counts;
         int size;
 
@@ -29,14 +29,9 @@ public class FindAnagrams  {
             if(counts[c - 'a'] == 0) size--;
         }
 
-        boolean isEmpty() {
-            return size == 0;
-        }
-
         @Override
         public boolean equals(Object other) {
-            if(!(other instanceof CharMap)) return false;
-            CharMap ocm = (CharMap) other;
+            if(!(other instanceof CharMap ocm)) return false;
             if(this == ocm) return true;
             if(this.size != ocm.size) return false;
             for(int i = 0; i < 26; i++) {
